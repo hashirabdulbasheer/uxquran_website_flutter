@@ -1,5 +1,7 @@
 # site
 
+[![Build](https://github.com/hashirabdulbasheer/uxquran_website_flutter/actions/workflows/main.yml/badge.svg)](https://github.com/hashirabdulbasheer/uxquran_website_flutter/actions/workflows/main.yml)
+
 uxquran.com website
 
 ## Getting Started
