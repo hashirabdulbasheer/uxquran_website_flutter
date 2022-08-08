@@ -1,0 +1,68 @@
+name: Build Flutter Web
+on:
+  push:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+env:
+  APP_OPTIONS: ${{secrets.APP_OPTIONS}}  
+
+jobs:
+  build:
+    name: Build Web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.1.0-0.0.pre.1253'
+          channel: 'master'
+      - name: Clean project
+        run: flutter clean
+      - name: Get dependencies
+        run: flutter pub get
+      - name: Create Firebase options file
+        run: echo "$APP_OPTIONS" > lib/app_options.dart
+      - name: Run Build Web
+        run: flutter build web --release
+      - name: Deploy
+        run: |
+          mkdir public
+          cd public
+          git config --global user.email hashir.abdulbasheer@gmail.com
+          git config --global user.name hashirabdulbasheer
+          git clone https://${{secrets.commit_secret}}@github.com/hashirabdulbasheer/hashirabdulbasheer.github.io.git
+          cd hashirabdulbasheer.github.io/
+          cp -R ../../build/web/* ./
+          date | cat > lastupdate.txt
+          git add --all .
+          git commit -am "update: uxQuran Website updated"
+          git push origin main
+          cd ../../
+          rm -rf public
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # Required mail server address:
+          server_address: smtp.gmail.com
+          # Required mail server port:
+          server_port: 465
+          # Optional (recommended): mail server username:
+          username: ${{secrets.MAIL_USERNAME}}
+          # Optional (recommended) mail server password:
+          password: ${{secrets.MAIL_PASSWORD}}
+          # Required mail subject:
+          subject: Github Actions job result
+          # Required recipients' addresses:
+          to: hashir.abdulbasheer@gmail.com
+          # Required sender full name (address can be skipped):
+          from: uxQuran Website # <user@example.com>
+          # Optional whether this connection use TLS (default is true if server_port is 465)
+          secure: true
+          # Optional plain body:
+          body: Build job of ${{github.repository}} completed successfully!
+          # Optional priority: 'high', 'normal' (default) or 'low'
+          priority: high     
