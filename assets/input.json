@@ -1,0 +1,74 @@
+[
+  {
+    "title" : "Quran Ayat",
+    "short-description" : "Aya word by word meaning",
+    "long-description" : "-Lookup word by word translation of an aya.\n-Bookmark.\n-Search for arabic/english word.",
+    "screenshot" : "quran-ayat-screenshot.png",
+    "icon" : "quran-ayat.png",
+    "link" : "https://hashirabdulbasheer.github.io/apps/quran-ayat/",
+    "id" : "004"
+  },
+  {
+    "title" : "Quran Chatbot",
+    "short-description" : "Quran Telegram Chabot",
+    "long-description" : "-English Translation of aya.\n-Search for arabic/english word.\n-Daily aya.\n-Random aya\n-Word meanings",
+    "screenshot" : "quran-chatbot.png",
+    "icon" : "quran-chatbot-icon.png",
+    "link" : "https://t.me/quran_chat_bot",
+    "id" : "005"
+  },
+  {
+    "title" : "Quran App for Blind",
+    "short-description" : "Quran app for the visually impaired",
+    "long-description" : "-Optimized for smartphone accessibility tools.\n-Works well with voice over/talk back.\n-word translations or aya translations",
+    "screenshot" : "quran-blind-screenshot.png",
+    "icon" : "quran-blind-icon.png",
+    "link" : "https://uxquran.com/apps/quran-blind/",
+    "id" : "006"
+  },
+  {
+    "title" : "Ayatul Kursi App",
+    "short-description" : "Memorize ayatul kursi easily",
+    "long-description" : "-Colorful for children.\n-With audio recitation.",
+    "screenshot" : "ayat-kursi-screenshot.png",
+    "icon" : "ayat-kursi-icon.png",
+    "link" : "https://uxquran.com/apps/ayat-kursi/",
+    "id" : "007"
+  },
+  {
+    "title" : "One Word",
+    "short-description" : "Noble Quran - a word at a time",
+    "long-description" : "-Read one word at a time with translation.\n-Tap/Click to move to next word.\n-Long tap/Long Click to move to previous word.\n-Slider to move quickly between ayats.\n-Light & Dark modes.\n-Bookmark any word location.",
+    "screenshot" : "oneword.png",
+    "icon" : "oneword-icon.png",
+    "link" : "https://uxquran.com/apps/quranoneword/",
+    "id" : "001"
+  },
+  {
+    "title" : "Scrolling",
+    "short-description" : "Noble Quran - word by word and translation",
+    "long-description" : "-Read ayat by ayat.\n-Word by word translation.\n-Translation for the ayat.\n-Scroll down to keep reading till end of surah.\n-Bookmark an ayat",
+    "screenshot" : "scrolling.png",
+    "icon" : "scrolling-icon.png",
+    "link" : "https://uxquran.com/apps/quran-translation/",
+    "id" : "002"
+  },
+  {
+    "title" : "Audio",
+    "short-description" : "Noble Quran - Audio recitations",
+    "long-description" : "-Hear recitations.\n-Select from different reciters.\n-Arabic only and with translations.\n-Bookmark for playback.",
+    "screenshot" : "audio.png",
+    "icon" : "audio-icon.png",
+    "link" : "https://uxquran.com/apps/quranaudio/",
+    "id" : "003"
+  },
+  {
+    "title" : "Dhikr",
+    "short-description" : "Dhikr counter",
+    "long-description" : "-Dhikr counter\n-Automatically saves the last count",
+    "screenshot" : "dhikr.png",
+    "icon" : "dhikr-icon.png",
+    "link" : "https://uxquran.com/apps/dhikr/",
+    "id" : "999"
+  }
+]

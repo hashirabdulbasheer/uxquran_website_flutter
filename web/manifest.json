@@ -1,0 +1,23 @@
+{
+    "name": "uxquran",
+    "short_name": "uxquran",
+    "start_url": ".",
+    "display": "minimal-ui",
+    "background_color": "#FFFFFF",
+    "theme_color": "#F8D331",
+    "description": "Building technologies to enhance our relationship with the Noble Quran.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
