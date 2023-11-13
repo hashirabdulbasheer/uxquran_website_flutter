@@ -18,6 +18,15 @@
     "id" : "005"
   },
   {
+    "title" : "Quran App for Blind",
+    "short-description" : "Quran app for the visually impaired",
+    "long-description" : "-Optimized for smartphone accessibility tools.\n-Works well with voice over/talk back.\n-word translations or aya translations",
+    "screenshot" : "quran-blind-screenshot.png",
+    "icon" : "quran-blind-icon.png",
+    "link" : "https://uxquran.com/apps/quran-blind/",
+    "id" : "006"
+  },
+  {
     "title" : "Ayatul Kursi App",
     "short-description" : "Memorize ayatul kursi easily",
     "long-description" : "-Colorful for children.\n-With audio recitation.",
@@ -34,6 +43,24 @@
     "icon" : "oneword-icon.png",
     "link" : "https://uxquran.com/apps/quranoneword/",
     "id" : "001"
+  },
+  {
+    "title" : "Scrolling",
+    "short-description" : "Noble Quran - word by word and translation",
+    "long-description" : "-Read ayat by ayat.\n-Word by word translation.\n-Translation for the ayat.\n-Scroll down to keep reading till end of surah.\n-Bookmark an ayat",
+    "screenshot" : "scrolling.png",
+    "icon" : "scrolling-icon.png",
+    "link" : "https://uxquran.com/apps/quran-translation/",
+    "id" : "002"
+  },
+  {
+    "title" : "Audio",
+    "short-description" : "Noble Quran - Audio recitations",
+    "long-description" : "-Hear recitations.\n-Select from different reciters.\n-Arabic only and with translations.\n-Bookmark for playback.",
+    "screenshot" : "audio.png",
+    "icon" : "audio-icon.png",
+    "link" : "https://uxquran.com/apps/quranaudio/",
+    "id" : "003"
   },
   {
     "title" : "Dhikr",

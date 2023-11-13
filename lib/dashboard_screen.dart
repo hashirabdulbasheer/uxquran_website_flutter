@@ -55,114 +55,131 @@ class UxDashboardScreen extends StatelessWidget {
               return new Text('Error: ${snapshot.error}');
             else {
               List<UxApps> appList = snapshot.data as List<UxApps>;
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                child: ResponsiveGridList(
-                    desiredItemWidth: 300,
-                    minSpacing: 10,
-                    children: appList.map((app) {
-                      return GestureDetector(
-                        onTap: () {
-                          QRUtils.launchURL(app.link);
-                        },
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          elevation: 10,
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                //////////////////////////////////////////////
-                                // HEADER
-                                Row(
-                                  children: <Widget>[
-                                    Container(
-                                        width: 40,
-                                        child: Image.asset(
-                                            "assets/images/${app.icon}",
-                                            fit: BoxFit.cover),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                              width: 3.0,
-                                              color: Colors.black12),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(5.0)),
-                                        )),
-                                    SizedBox(width: 10),
-                                    Text(
-                                      "${app.title}",
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                          fontSize: 25, color: Colors.black87),
-                                    ),
-                                  ],
+              return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                      child: Text(
+                          "Wouldn't it be AMAZING if we could improve our understanding of the Noble Quran using technology, thereby, transforming our day-to-day thinking and decisions rooted in its profound wisdom.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 25, color: Colors.white, height: 1.5,)),),
+                    Expanded(child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: ResponsiveGridList(
+                          desiredItemWidth: 300,
+                          minSpacing: 10,
+                          children: appList.map((app) {
+                            return GestureDetector(
+                              onTap: () {
+                                QRUtils.launchURL(app.link);
+                              },
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
                                 ),
-                                SizedBox(height: 5),
-                                Text(
-                                  "${app.shortDescription}",
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      height: 1.5,
-                                      fontSize: 15,
-                                      color: Colors.black45),
-                                ),
-                                //////////////////////////////////////////////
-
-                                SizedBox(height: 20),
-                                Container(
-                                  height: 200,
-                                  child: Center(
-                                      child: Image.asset(
-                                          "assets/images/${app.screenshot}",
-                                          fit: BoxFit.scaleDown)),
-                                ),
-                                SizedBox(height: 10),
-
-                                ////////////////////////////////////////////////
-                                // Description
-                                Text("Features:",
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.black54)),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                  child: Container(
-                                    height: 130,
-                                    child: Text("${app.longDescription}",
+                                elevation: 10,
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment
+                                        .start,
+                                    children: <Widget>[
+                                      //////////////////////////////////////////////
+                                      // HEADER
+                                      Row(
+                                        children: <Widget>[
+                                          Container(
+                                              width: 40,
+                                              child: Image.asset(
+                                                  "assets/images/${app.icon}",
+                                                  fit: BoxFit.cover),
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    width: 3.0,
+                                                    color: Colors.black12),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(5.0)),
+                                              )),
+                                          SizedBox(width: 10),
+                                          Text(
+                                            "${app.title}",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                                fontSize: 25,
+                                                color: Colors.black87),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        "${app.shortDescription}",
+                                        textAlign: TextAlign.start,
                                         style: TextStyle(
                                             height: 1.5,
                                             fontSize: 15,
-                                            color: Colors.black54)),
+                                            color: Colors.black45),
+                                      ),
+                                      //////////////////////////////////////////////
+
+                                      SizedBox(height: 20),
+                                      Container(
+                                        height: 200,
+                                        child: Center(
+                                            child: Image.asset(
+                                                "assets/images/${app
+                                                    .screenshot}",
+                                                fit: BoxFit.scaleDown)),
+                                      ),
+                                      SizedBox(height: 10),
+
+                                      ////////////////////////////////////////////////
+                                      // Description
+                                      Text("Features:",
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black54)),
+                                      Padding(
+                                        padding:
+                                        const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                        child: Container(
+                                          height: 130,
+                                          child: Text("${app.longDescription}",
+                                              style: TextStyle(
+                                                  height: 1.5,
+                                                  fontSize: 15,
+                                                  color: Colors.black54)),
+                                        ),
+                                      ),
+                                      ////////////////////////////////////////////////
+
+                                      SizedBox(height: 10),
+                                      Center(
+                                          child: SizedBox(
+                                            width: 200,
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  primary: orangeColor),
+                                              child: Text(
+                                                "Launch",
+                                                style: TextStyle(
+                                                    color: Colors.black87),
+                                              ),
+                                              onPressed: () {
+                                                QRUtils.launchURL(app.link);
+                                              },
+                                            ),
+                                          ))
+                                    ],
                                   ),
                                 ),
-                                ////////////////////////////////////////////////
+                              ),
+                            );
+                          }).toList()),
+                    ))
 
-                                SizedBox(height: 10),
-                                Center(
-                                    child: SizedBox(
-                                  width: 200,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                        primary: orangeColor),
-                                    child: Text(
-                                      "Launch",
-                                      style: TextStyle(color: Colors.black87),
-                                    ),
-                                    onPressed: () {
-                                      QRUtils.launchURL(app.link);
-                                    },
-                                  ),
-                                ))
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    }).toList()),
-              );
+                  ]);
             }
         }
       },
