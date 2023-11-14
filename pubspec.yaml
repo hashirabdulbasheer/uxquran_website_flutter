@@ -30,6 +30,7 @@ dependencies:
   responsive_grid:
   url_launcher:
   http:
+  marquee: ^2.2.3
 
 
 dev_dependencies:

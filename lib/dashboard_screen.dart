@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:marquee/marquee.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
 import 'app_options.dart';
@@ -44,28 +45,37 @@ class UxDashboardScreen extends StatelessWidget {
   }
 
   _displayContent() {
-    return FutureBuilder<List<UxApps>>(
-      future: _readContent(), // async work
-      builder: (BuildContext context, AsyncSnapshot<List<UxApps>> snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.waiting:
-            return Center(child: CircularProgressIndicator());
-          default:
-            if (snapshot.hasError)
-              return new Text('Error: ${snapshot.error}');
-            else {
-              List<UxApps> appList = snapshot.data as List<UxApps>;
-              return Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
-                      child: Text(
-                          "Wouldn't it be AMAZING if we could improve our understanding of the Noble Quran using technology, thereby, transforming our day-to-day thinking and decisions rooted in its profound wisdom.",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 25, color: Colors.white, height: 1.5,)),),
-                    Expanded(child: Padding(
+    return Column(
+      children: [
+        Container(
+          height: 40,
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+          child: Marquee(
+            text:
+                "WOULDN'T IT BE AMAZING IF WE COULD USE TECHNOLOGY TO IMPROVE OUR UNDERSTANDING OF THE NOBLE QURAN AND THEREBY IMPROVE OUR DAY TO DAY THINKING AND DECISIONS.",
+            blankSpace: 20.0,
+            velocity: 50.0,
+            startPadding: 10.0,
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Expanded(
+          child: FutureBuilder<List<UxApps>>(
+            future: _readContent(), // async work
+            builder:
+                (BuildContext context, AsyncSnapshot<List<UxApps>> snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.waiting:
+                  return Center(child: CircularProgressIndicator());
+                default:
+                  if (snapshot.hasError)
+                    return new Text('Error: ${snapshot.error}');
+                  else {
+                    List<UxApps> appList = snapshot.data as List<UxApps>;
+                    return Padding(
                       padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                       child: ResponsiveGridList(
                           desiredItemWidth: 300,
@@ -76,6 +86,7 @@ class UxDashboardScreen extends StatelessWidget {
                                 QRUtils.launchURL(app.link);
                               },
                               child: Card(
+                                color: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
@@ -83,8 +94,8 @@ class UxDashboardScreen extends StatelessWidget {
                                 child: Container(
                                   padding: const EdgeInsets.all(10),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       //////////////////////////////////////////////
                                       // HEADER
@@ -128,8 +139,7 @@ class UxDashboardScreen extends StatelessWidget {
                                         height: 200,
                                         child: Center(
                                             child: Image.asset(
-                                                "assets/images/${app
-                                                    .screenshot}",
+                                                "assets/images/${app.screenshot}",
                                                 fit: BoxFit.scaleDown)),
                                       ),
                                       SizedBox(height: 10),
@@ -141,8 +151,8 @@ class UxDashboardScreen extends StatelessWidget {
                                               fontSize: 15,
                                               color: Colors.black54)),
                                       Padding(
-                                        padding:
-                                        const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                        padding: const EdgeInsets.fromLTRB(
+                                            10, 0, 0, 0),
                                         child: Container(
                                           height: 130,
                                           child: Text("${app.longDescription}",
@@ -157,32 +167,33 @@ class UxDashboardScreen extends StatelessWidget {
                                       SizedBox(height: 10),
                                       Center(
                                           child: SizedBox(
-                                            width: 200,
-                                            child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                  primary: orangeColor),
-                                              child: Text(
-                                                "Launch",
-                                                style: TextStyle(
-                                                    color: Colors.black87),
-                                              ),
-                                              onPressed: () {
-                                                QRUtils.launchURL(app.link);
-                                              },
-                                            ),
-                                          ))
+                                        width: 200,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                              primary: orangeColor),
+                                          child: Text(
+                                            "Launch",
+                                            style: TextStyle(
+                                                color: Colors.black87),
+                                          ),
+                                          onPressed: () {
+                                            QRUtils.launchURL(app.link);
+                                          },
+                                        ),
+                                      ))
                                     ],
                                   ),
                                 ),
                               ),
                             );
                           }).toList()),
-                    ))
-
-                  ]);
-            }
-        }
-      },
+                    );
+                  }
+              }
+            },
+          ),
+        ),
+      ],
     );
   }
 
