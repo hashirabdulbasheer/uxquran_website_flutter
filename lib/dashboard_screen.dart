@@ -52,7 +52,7 @@ class UxDashboardScreen extends StatelessWidget {
             text:
                 "WOULDN'T IT BE AMAZING IF WE COULD USE TECHNOLOGY TO IMPROVE OUR UNDERSTANDING OF THE NOBLE QURAN AND THEREBY IMPROVE OUR DAY TO DAY THINKING AND DECISIONS.",
             blankSpace: 20.0,
-            velocity: 50.0,
+            velocity: 80.0,
             startPadding: 10.0,
             style: TextStyle(
               fontSize: 20,
