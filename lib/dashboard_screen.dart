@@ -47,9 +47,7 @@ class UxDashboardScreen extends StatelessWidget {
   _displayContent() {
     return Column(
       children: [
-        Container(
-          height: 40,
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        Expanded(
           child: Marquee(
             text:
                 "WOULDN'T IT BE AMAZING IF WE COULD USE TECHNOLOGY TO IMPROVE OUR UNDERSTANDING OF THE NOBLE QURAN AND THEREBY IMPROVE OUR DAY TO DAY THINKING AND DECISIONS.",
@@ -63,6 +61,7 @@ class UxDashboardScreen extends StatelessWidget {
           ),
         ),
         Expanded(
+          flex: 10,
           child: FutureBuilder<List<UxApps>>(
             future: _readContent(), // async work
             builder:
